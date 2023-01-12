@@ -1,8 +1,11 @@
 #include <iostream>
+#include <string>
 
 int main() {
-    int var;
+    std::cout << "What's your name?" << std::endl;
+    std::string var;
+    //int var;
     std::cin >> var;
-    std::cout << "Hello world!" << std::endl;
+    std::cout << "Hello " << var << "!" << std::endl;
     return 0; 
 }
