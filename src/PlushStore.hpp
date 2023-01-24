@@ -13,8 +13,16 @@ class PlushStore {
         int get_stock_size() const {
             return _stock;
         }
+        void loan(int money) {
+            _wealth += money;
+            _debt += money + (0.1 * money);
+        }
+        int get_debt_amount() const {
+            return _debt;
+        }
     private: 
         std::string _name;
         int _wealth = 0;
-        int _stock = 0; 
+        int _stock = 0;
+        int _debt = 0; 
 };
