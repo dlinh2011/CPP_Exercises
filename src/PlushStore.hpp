@@ -20,6 +20,16 @@ class PlushStore {
         int get_debt_amount() const {
             return _debt;
         }
+        void make_plush(int cost) {
+            if (_wealth == 0) return;
+            if (cost > _wealth) {
+                _wealth = 0; 
+            }
+            else {
+                _wealth -= cost;
+            }
+            _stock++;
+        }
     private: 
         std::string _name;
         int _wealth = 0;
