@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <ostream>
 
 class Kid {
     public:
@@ -10,8 +11,14 @@ class Kid {
         int get_money() const {
             return _money; 
         }
+
     private:
         std::string _name; 
         int _money; 
 
 };
+
+// comme fonction static en Java ?
+std::ostream& operator<<(std::ostream& stream, const Kid& kid) {
+    return stream << kid.get_name() << " has " << kid.get_money() << " euros."; 
+}
