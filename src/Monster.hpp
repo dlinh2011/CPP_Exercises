@@ -1,11 +1,33 @@
 #pragma once
 #include <string>
+#include "Card.hpp"
 
 enum class Attribute {
    Dark, Divine, Earth, Fire, Light, Water, Wind
 };
 
-
+class Monster : public Card {
+    public: 
+        Monster(const std::string& id, const std::string& name,Attribute attribute, const std::string& description, int atk, int def) 
+        : Card {id, CardType::Monster},  _attribute { attribute} , _atk {atk} , _def {def} 
+        {
+            set_name(name);
+            set_description(description);
+        }
+        Attribute get_attribute() const {
+            return _attribute;
+        }
+        int get_atk() const {
+            return _atk;
+        }
+        int get_def() const {
+            return _def;
+        }
+    private:
+        Attribute _attribute; 
+        int _atk = 0; 
+        int _def = 0;
+};
 
 const std::string to_symbol(Attribute attribute) {
     switch (attribute) {

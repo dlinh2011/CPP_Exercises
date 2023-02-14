@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-enum CardType {
+enum class CardType {
     Monster, Spell, Trap
 };
 
@@ -10,6 +10,7 @@ class Card {
         const std::string& get_id() const {
             return _id; 
         }
+
         CardType get_type() const {
             return _type; 
         }
