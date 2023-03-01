@@ -5,7 +5,7 @@
 #include <memory>
 class StringLeaf : public Leaf {
     public:
-        StringLeaf(std::string& value) : _value {value} {}
+        StringLeaf(const std::string& value) : _value {value} {}
         NodeKind kind() const override {
             return NodeKind::STRING;
         }
@@ -13,7 +13,7 @@ class StringLeaf : public Leaf {
             return "\"" + _value + "\"";
         }
         std::string data() const {
-            return "\"" + _value + "\"";
+            return _value;
         }
         static NodePtr make_ptr(std::string v) {
             return std::make_unique<StringLeaf>(v);
