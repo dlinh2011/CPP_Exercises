@@ -2,9 +2,11 @@
 #include <vector>
 #include "../lib/Unit.hpp"
 #include "../lib/Ingredient.hpp"
+#include "../lib/Consumable.hpp"
 #include <string>
 #include <memory>
 #include <algorithm>
+#include <optional>
 
 using UnitPtr = std::unique_ptr<Unit>;
 using IngredientPtr = std::unique_ptr<Ingredient>;
@@ -42,7 +44,7 @@ class Kitchen
         const Ingredient* find_ingredient(std::string name) const {
            /* auto it1 = std::transform(name.begin(), name.end(), name.begin(),
             [](unsigned char c){ return std::tolower(c); });
-
+            # lexical graphique counter
             std::string expectsString(1, *it1); */
             auto is_name = [name](const IngredientPtr& p){ return p->name == name; };
 
@@ -53,11 +55,20 @@ class Kitchen
             return it->get();
         }
 
+        std::optional<Consumable> make_random_consumable(float f, int i) {
+            if (_ingredients.size() == 0) {
+                return std::nullopt;
+            }
+            auto rand_ingre = *_ingredients.back();
+            auto& ref = rand_ingre;
+            //Consumable consumable;
+            //consumable 
+
+            //return std::optional<Consumable>(rand_ingre, 0.f, i);
+
+        }
 
 
-
-
-        
     std::vector<UnitPtr> _units; 
     std::vector<IngredientPtr> _ingredients; 
 };
